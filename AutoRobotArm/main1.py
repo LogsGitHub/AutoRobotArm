@@ -1,5 +1,5 @@
 # 导入env和rl模块，分别定义了环境类和算法类
-from env1 import ArmEnv
+from env import ArmEnv
 from rlp import DDPG
 
 MAX_EPISODES = 1200  # 定义一个常量，表示最大训练回合数
