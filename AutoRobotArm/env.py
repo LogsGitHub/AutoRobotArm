@@ -36,10 +36,7 @@ class ArmEnv(object):
         dist2 = [(self.goal['x'] - finger[0]) / 400,
                  (self.goal['y'] - finger[1]) / 400]  # 计算第二个臂的终点到目标中心的距离，并除以400进行归一化
         r = -np.sqrt(dist2[0] ** 2 + dist2[1] ** 2)  # 根据第二个臂的终点到目标中心的距离计算奖励值，距离越小奖励越大
-        # r = -np.sqrt(dist2[0] ** 2 + dist2[1] ** 2) - np.abs(self.arm_info['r'][1]) * 0.1 - np.sum(np.square(
-        # action)) * 0.1 新增
-        #action_cost = -0.01 * (action[0] ** 2 + action[1] ** 2)
-        #r += action_cost
+        r -= 0.1
 
         # 判断是否结束和奖励
         if self.goal['x'] - self.goal['l'] / 2 < finger[0] < self.goal['x'] + self.goal[
